@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - AIAC LKO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('2.png'); /* Use the same background as your main site */
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #FFD700; /* Gold color on hover */
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            margin: 10px;
+            font-size: 1.2em;
+            transition: background 0.3s ease;
+            width: 220px;
+            justify-content: center;
+        }
+
+        .contact-info a i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .whatsapp {
+            background-color: #25D366;
+        }
+
+        .whatsapp:hover {
+            background-color: #1da955;
+        }
+
+        .email {
+            background-color: #D14836;
+        }
+
+        .email:hover {
+            background-color: #b5382d;
+        }
+
+        .call {
+            background-color: #007BFF;
+        }
+
+        .call:hover {
+            background-color: #005bb5;
+        }
+
+        .map {
+            margin: 20px auto;
+            border: 2px solid #212120; /* Gold border */
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 100%;
+            width: 600px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            font-size: 1.2em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            .contact-info a {
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Contact Us</h1>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+        </div>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.591727469197!2d80.94401171441342!3d26.85372098313999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfa2a352f5a27%3A0xf3a4f86b1c71ee12!2sJeevan%20Plaza%2C%20Vipul%20Khand%2C%20Gomti%20Nagar%2C%20Lucknow%2C%20Uttar%20Pradesh%20226110!5e0!3m2!1sen!2sin!4v1625447140192!5m2!1sen!2sin" loading="lazy"></iframe>
+    </div>
+    <div class="container">
+        <div class="contact-info">
+            <a class="whatsapp" href="https://wa.me/919161214800" target="_blank">
+                <i class="fa fa-whatsapp"></i> WhatsApp Us
+            </a>
+            <a class="email" href="mailto:aiaclko1@gmail.com">
+                <i class="fa fa-envelope"></i> Email Us
+            </a>
+            <a class="call" href="tel:+919161214800">
+                <i class="fa fa-phone"></i> Call Us
+            </a>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 AIAC LKO - All Rights Reserved.</p>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH/2BR2mcS8Rjt2Tj4mXo2jIjj3tPtLCi2O1whpSHM+dbDgKz8k8QpQEC2GR1jcWIMXzV0JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</body>
+</html>

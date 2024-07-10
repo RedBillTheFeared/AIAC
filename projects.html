@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - AIAC LKO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" />
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header, .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .header a, .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2em;
+            color: #007BFF;
+        }
+
+        .projects-section {
+            margin-bottom: 50px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-item h3 {
+            margin: 10px;
+            color: #007BFF;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox img {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .lightbox .close:hover,
+        .lightbox .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .lightbox .prev, .lightbox .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .lightbox .prev {
+            left: 10px;
+        }
+
+        .lightbox .next {
+            right: 10px;
+        }
+
+        .lightbox .prev:hover,
+        .lightbox .next:hover {
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="section-title">Our Projects</h1>
+
+        <!-- Architectural Designs Section -->
+        <section class="projects-section">
+            <h2 class="section-title">Architectural Designs</h2>
+            <div class="projects-grid">
+                <!-- Example project items with additional images (replace with actual images) -->
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-dayal-paradise-3.jpg,aiaclko-pvt-dayal-paradise-5.jpg,aiaclko-pvt-dayal-paradise-4.jpg">
+                    <img src="aiaclko-pvt-dayal-paradise-2.jpg" alt="Project 1">
+                    <h3>Dayal Paradise at Vipul Khand, Gomti Nagar, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)">
+                    <img src="aiaclko-pvt-shagun-vetika-1.jpg" alt="Project 2">
+                    <h3>Shagun Vatika, Parag Narayen Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-diamond-resort -3.jpg">
+                    <img src="aiaclko-pvt-diamond-resort -2.jpg" alt="Project 3">
+                    <h3>Diamond Resort at, Mohanlal Ganj, Raibareilly Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-JSV-Hyundai-2.jpg,aiaclko-pvt-JSV-Hyundai-3.jpg,aiaclko-pvt-JSV-Hyundai-4.jpg">
+                    <img src="aiaclko-pvt-JSV-Hyundai-1.jpg" alt="Project 4">
+                    <h3>JSV Hyundai showroom, Vikrant Khand, Gomti Nagar, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)"data-images="">
+                    <img src="aiaclko-pvt-JSV-Hyundai-5.jpg" alt="Project 5">
+                    <h3>JSV Hyundai showroom, Ring Road, Vikas Nagar, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-JSV-Hyundai-large.jpg" alt="Project 6">
+                    <h3>JSV Hyundai showroom, Barabanki, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-pankaj-verma.jpg" alt="Project 7">
+                    <h3>Commercial Complex of Mr. Pankaj Verma at Vikram Khand, Gomti Nagar, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-Diamond-Palace-2.jpg">
+                    <img src="aiaclko-pvt-Diamond-Palace-1.jpg" alt="Project 8">
+                    <h3>Diamond Palace Avadh International, Faizabad Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-marriage-hall-2.jpg">
+                    <img src="aiaclko-pvt-marriage-hall-1.jpg" alt="Project 9">
+                    <h3>Marriage Hall, Faizabad Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-emerald-court-1.jpg" alt="Project 10">
+                    <h3>Emerald Court, Jugal Kishore Colonisers, Jopling Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)"data-images="">
+                    <img src="aiaclko-himanshu-sir-residence-1.png" alt="Project 11">
+                    <h3>Residence of Mr. Himanshu Singh, Ansals, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-aditya-residence.jpg" alt="Project 12">
+                    <h3>Residence of Mr. Aditya Misra, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)"data-images="">
+                    <img src="aiaclko-pvt-dayal-resort-1.jpg" alt="Project 13">
+                    <h3>Dayal Resort, Deva Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-dayal-benquet.jpg" alt="Project 14">
+                    <h3>Banquet Hall, Dayal Resort, Deva Road, Lucknow.</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interior Designs Section -->
+        <section class="projects-section">
+            <h2 class="section-title">Interior Designs</h2>
+            <div class="projects-grid">
+                <!-- Example project items with additional images (replace with actual images) -->
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-moroccan-2.jpg,aiaclko-pvt-moroccan-3.jpg,aiaclko-pvt-moroccan-4.jpg">
+                    <img src="aiaclko-pvt-moroccan-1 (1).jpg" alt="Interior Project 1">
+                    <h3>Moroccan Spa, Phoenix Palassio, Gomti Nagar, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-diamond-resort -3.jpg">
+                    <img src="aiaclko-pvt-diamond-resort -2.jpg" alt="Interior Project 2">
+                    <h3>Diamond Resort at, Mohanlal Ganj, Raibareilly Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-dayal-paradise-3.jpg,aiaclko-pvt-dayal-paradise-5.jpg,aiaclko-pvt-dayal-paradise-4.jpg">
+                    <img src="aiaclko-pvt-dayal-paradise-2.jpg" alt="Interior Project 3">
+                    <h3>Dayal Paradise at Vipul Khand, Gomti Nagar, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-zero-degree-2.jpg">
+                    <img src="aiaclko-pvt-zero-degree-1.jpg" alt="Interior Project 4">
+                    <h3>Zero°, Discotheque / Pub, Riverside Mall, Gomti Nagar, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-JSV-Hyundai-2.jpg,aiaclko-pvt-JSV-Hyundai-3.jpg,aiaclko-pvt-JSV-Hyundai-4.jpg">
+                    <img src="aiaclko-pvt-JSV-Hyundai-1.jpg" alt="Interior Project 5">
+                    <h3>JSV Hyundai showroom, Vikrant Khand, Gomti Nagar, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-diamond-resort -3.jpg">
+                    <img src="aiaclko-pvt-diamond-resort -2.jpg" alt="Interior Project 6">
+                    <h3>Diamond Resort at, Mohanlal Ganj, Raibareilly Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-marriage-hall-2.jpg">
+                    <img src="aiaclko-pvt-marriage-hall-1.jpg" alt="Interior project 7">
+                    <h3>Marriage Hall, Faizabad Road, Lucknow.</h3>
+                </div>
+
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-gemini-continental.jpg" alt="Interior Project 8">
+                    <h3>Banquet Hall, Gemini Continental, Rani Laxmi Bai Marg, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-arif-castles.jpg" alt="Interior Project 9">
+                    <h3>Renovation of Arif Castles, Nainital.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)"data-images="">
+                    <img src="aiaclko-pvt-dayal-resort-1.jpg" alt="Interior project 10">
+                    <h3>Dayal Resort, Deva Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="image16.jpg,image17.jpg,image18.jpg">
+                    <img src="aiaclko-pvt-moti-mahal.jpg" alt="Interior Project 11">
+                    <h3>Renovation of Moti Mahal Delux at Sahara Mall, Lucknow</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-restaurant-2.jpg,aiaclko-pvt-restaurant-3.jpg,aiaclko-pvt-restaurant-4.jpg">
+                    <img src="aiaclko-pvt-restaurant-1.jpg" alt="Interior Project 12">
+                    <h3>Restaurant of Mr. Mansoor, Jopling Road, Lucknow.</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Landscape Designs Section -->
+        <section class="projects-section">
+            <h2 class="section-title">Landscape Designs</h2>
+            <div class="projects-grid">
+                <!-- Example project items with additional images (replace with actual images) -->
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-dayal-paradise-6.jpg">
+                    <img src="aiaclko-pvt-dayal-paradise-2.jpg" alt="Landscape Project 1">
+                    <h3> Dayal Paradise at Vipul Khand, Gomti Nagar, Lucknow</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-Diamond-Palace-2.jpg">
+                    <img src="aiaclko-pvt-Diamond-Palace-1.jpg" alt="Landscape project 2">
+                    <h3>Diamond Palace Avadh International, Faizabad Road, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)"data-images="">
+                    <img src="aiaclko-pvt-dayal-resort-1.jpg" alt="Landscape Project 3">
+                    <h3>Dayal Resort, Deva Road, Lucknow.</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ongoing Projects Section -->
+        <section class="projects-section">
+            <h2 class="section-title">Ongoing Projects</h2>
+            <div class="projects-grid">
+                <!-- Example project items with additional images (replace with actual images) -->
+                <div class="project-item" onclick="openLightbox(this)" data-images="mipl-pvt-kanpur-anoopam-large.jpg,mipl-pvt-kanpur-anoopam-s2.jpg">
+                    <img src="mipl-pvt-kanpur-anoopam-s1.jpg" alt="Ongoing project 1">
+                    <h3> Proposed Landscape for a Residence in Kanpur</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="mipl-pvt-kanpur-anoopam-large.jpg,mipl-pvt-kanpur-anoopam-s2.jpg">
+                    <img src="aiaclko-pvt-gopal-singh-4.jpg" alt="Ongoing project 2">
+                    <h3>Residence of Mr. Gopal Singh, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-arif-sahab-4.jpg" alt="Ongoing project 3">
+                    <h3>A Private Residence in Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-res-in-gomtingr.jpg" alt="Ongoing project 4">
+                    <h3>A Residence in Gomti Nagar, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-woodcreeper-homes-2.jpg">
+                    <img src="aiaclko-pvt-woodcreeper-homes-1.jpg" alt="Ongoing project 5">
+                    <h3>Woodcreeper Homes Private Limited, Lucknow</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="aiaclko-pvt-arif-sahab-2.jpg">
+                    <img src="aiaclko-pvt-arif-sahab-1.jpg" alt="Ongoing project 6">
+                    <h3>A Private Residence in Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-gopal-singh-1.jpg" alt="Ongoing project 7">
+                    <h3>Residence of Mr. Gopal Singh, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-eye-clinic-1.jpg" alt="Ongoing project 8">
+                    <h3>Dr. Rizwan Khan Eye Clinic, Lucknow</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-kunwar-global (1).jpg" alt="Ongoing project 9">
+                    <h3>Kunwar's Global School, Lucknow.</h3>
+                </div>
+                <div class="project-item" onclick="openLightbox(this)" data-images="">
+                    <img src="aiaclko-pvt-somvanshi.jpg" alt="Ongoing project 10">
+                    <h3>Somvanshi International Academy, Lucknow.</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Videos Section -->
+        <section class="projects-section">
+            <h2 class="section-title">Project Videos</h2>
+            <div class="projects-grid">
+                <!-- Example project videos (replace with actual video links) -->
+                <div class="project-item">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/-GcwOKhaKeY?si=QU5EQx-DGrstiAVx" title="Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3>Eram School, Indira Nagar, Lucknow</h3>
+                </div>
+                <div class="project-item">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/b1TklypvmHk" title="Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3>Play area, Primary section, Eram School, Indira Nagar, Lucknow</h3>
+                </div>
+                <div class="project-item">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/2PYg4GMrqIY" title="Video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3>A Private Residence in Lucknow</h3>
+                </div>
+                <div class="project-item">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/nF0RbDNp9os" title="Video 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3>A Private Residence in Lucknow</h3>
+                </div>
+                <div class="project-item">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/N7jQU5tiRDE" title="Video 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3>Chandrakanta Farms, Kathwara, Bakshi ka Talab, Lucknow</h3>
+                </div>
+                <div class="project-item">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/StbQcuNqLnY" title="Video 6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3>Chandraka Devi Farm House</h3>
+                </div>
+                <div class="project-item">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/0BX12Kq6Rdc" title="Video 7" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3>Shifa Paramedical College, Lakhimpur </h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 AIAC LKO - All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/creations_4all/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560357173133" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/channel/UCtAqHGQlfSmXRy2fQGeFExg" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <!-- Lightbox for images -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+        <span class="next" onclick="changeImage(1)">&#10095;</span>
+        <img id="lightbox-img" src="">
+    </div>
+
+    <script>
+        // JavaScript for Lightbox functionality
+        let currentIndex = 0;
+        let imageArray = [];
+
+        function openLightbox(element) {
+            var imgSrc = element.querySelector('img').src;
+            var additionalImages = element.getAttribute('data-images').split(',');
+
+            imageArray = [imgSrc, ...additionalImages];
+            currentIndex = 0;
+            displayImage();
+            document.getElementById('lightbox').style.display = 'block';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + imageArray.length) % imageArray.length;
+            displayImage();
+        }
+
+        function displayImage() {
+            document.getElementById('lightbox-img').src = imageArray[currentIndex];
+        }
+    </script>
+</body>
+</html>
