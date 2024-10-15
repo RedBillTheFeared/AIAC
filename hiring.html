@@ -38,17 +38,17 @@
             <div class="job">
                 <h3>Architect</h3>
                 <p>Requirements: Minimum 3 years of experience, proficiency in sustainable architecture.</p>
-                <button onclick="location.href='apply.html'">Apply Now</button>
+                <button onclick="location.href='#apply'">Apply Now</button>
             </div>
             <div class="job">
                 <h3>Interior Designer</h3>
                 <p>Requirements: Creativity, experience in modern interior design, knowledge of design software.</p>
-                <button onclick="location.href='apply.html'">Apply Now</button>
+                <button onclick="location.href='#apply'">Apply Now</button>
             </div>
             <div class="job">
                 <h3>Project Manager</h3>
                 <p>Requirements: Project management skills, strong leadership, experience with construction projects.</p>
-                <button onclick="location.href='apply.html'">Apply Now</button>
+                <button onclick="location.href='#apply'">Apply Now</button>
             </div>
         </div>
     </section>
@@ -86,16 +86,5 @@
             <a href="https://www.youtube.com/channel/UCtAqHGQlfSmXRy2fQGeFExg" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
     </footer>
-
-    <!-- JavaScript for Smooth Scrolling and Job Applications -->
-    <script>
-        // Smooth scroll to apply section when 'Apply Now' button is clicked
-        document.querySelectorAll('.job button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelector('#apply').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
 </body>
 </html>
