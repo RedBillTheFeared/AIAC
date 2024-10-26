@@ -13,6 +13,11 @@
             width: 100%;
             border: 1px solid #ddd;
         }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -161,8 +166,6 @@
 
     <!-- Load the Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-
-    <!-- Initialize the Google Map -->
     <script>
         function initMap() {
             var location = { lat: 26.8537209, lng: 80.9440117 };
