@@ -3,87 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIAC LKO - We Are Hiring</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>We're Hiring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .container img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .description {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .apply-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .contact-info a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="brand">AIAC LKO</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- We Are Hiring Header Section -->
-    <header class="hero">
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h1>Join Our Team</h1>
-            <p>We are looking for passionate individuals to be part of AIAC LKO. Explore current job openings below!</p>
-        </div>
-    </header>
+    <div class="container">
+        <!-- Header Section -->
+        <h1>We're Hiring! Join Our Team</h1>
 
-    <!-- Job Listings Section -->
-    <section class="careers" id="careers">
-        <h2>Current Openings</h2>
-        <div class="job-listings">
-            <div class="job">
-                <h3>Architect</h3>
-                <p>Requirements: Minimum 3 years of experience, proficiency in sustainable architecture.</p>
-                <button onclick="location.href='#apply'">Apply Now</button>
-            </div>
-            <div class="job">
-                <h3>Interior Designer</h3>
-                <p>Requirements: Creativity, experience in modern interior design, knowledge of design software.</p>
-                <button onclick="location.href='#apply'">Apply Now</button>
-            </div>
-            <div class="job">
-                <h3>Project Manager</h3>
-                <p>Requirements: Project management skills, strong leadership, experience with construction projects.</p>
-                <button onclick="location.href='#apply'">Apply Now</button>
-            </div>
-        </div>
-    </section>
+        <!-- Image Section -->
+        <img src="hiring.jpg" alt="We're Hiring Poster">
 
-    <!-- Hiring Contact Form -->
-    <section class="contact" id="apply">
-        <h2>Interested? Apply Now!</h2>
-        <form action="#" method="post" class="contact-form">
-            <div class="form-group">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="position">Position Applied For:</label>
-                <input type="text" id="position" name="position" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Cover Letter:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit">Submit Application</button>
-        </form>
-    </section>
+        <!-- Description -->
+        <p class="description">Join our growing team by sending your resume today. We're looking for passionate individuals to fill the positions listed below.</p>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <p>&copy; 2024 AIAC LKO - All Rights Reserved.</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/creations_4all/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61560357173133" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.youtube.com/channel/UCtAqHGQlfSmXRy2fQGeFExg" target="_blank"><i class="fab fa-youtube"></i></a>
+        <!-- Apply Now Button -->
+        <a class="apply-btn" href="mailto:aiaclko@gmail.com?subject=Job%20Application&body=I%20am%20interested%20in%20applying%20for%20the%20position.">Apply Now</a>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <p>Have questions? Contact us at <a href="mailto:aiaclko@gmail.com">aiaclko@gmail.com</a> or call us at <a href="tel:+7704800140">7704800140</a>.</p>
         </div>
-    </footer>
+    </div>
+
 </body>
 </html>
