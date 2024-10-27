@@ -3,181 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIAC LKO - Architectural Showcase</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>We're Hiring</title>
     <style>
-        /* Ensure the map container has a set height */
-        #map-container {
-            height: 400px;
-            width: 100%;
-            border: 1px solid #ddd;
+        /* Global Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="brand">AIAC LKO</a>
-            <ul class="nav-links">
-                <li><a href="#about">About Us</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="hiring.html">Hiring</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="overlay"></div> <!-- Dark overlay for better readability -->
-        <div class="hero-content">
-            <h1>Architectural Excellence</h1>
-            <p>Transforming Visions into Architectural Masterpieces – Experience Design Excellence with AIAC LKO</p>
-            <a href="#about" class="learn-more">Learn More</a>
-        </div>
-    </header>
-
-    <!-- About Us Section -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <div class="about-content">
-            <p>An Architect, Interior Designer, Landscape Designer, Project Management & Construction Management Consultant, and the fastest growing Construction Contractor in Lucknow, Architectural Innovations & Construction is a proprietary firm based in the capital city of the state Uttar Pradesh in India.</p>
-            <p>It was established by its Chief Architect Ahmed Haroon who is involved in planning and designing of various Government and Private Projects since the beginning. He has an excellent oversight of his clients' requirements and owns the ability to translate his clients' imaginative dreams into physical, earthly built form.</p>
-            <p>Apart from being an International Associate of American Institute of Architects, he is a qualified Indian Green Building Council Accredited Professional (IGBC AP).</p>
-            <p>The Firm specializes in Sustainable Designs and Architecture. Sustainable or Green Architecture is a term, which not only describes a technologically and materially durable building design, but also an ecologically and environmentally stable one. The firm is always committed to the green architecture with environmentally conscious designs.</p>
-            <p>Besides architects, the firm also includes interior designers & decorators, industrial building planners, landscape architects, and other professionals. Collectively they develop technically sound Master of the Art structures as per the requirement of its clients.</p>
-            <p>Apart from being an architectural firm, AIAC Lucknow is a professional team of builders also. Whether it is a Residential building or a Commercial one, they are here to assist you in all aspects of its construction. Capturing your vision, they create a construction plan that reflects your uniqueness and perception.</p>
-            <p>While the firm is based in Lucknow, it has a vast experience of doing work in various parts of Uttar Pradesh and adjoining states of India.</p>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <h2>Testimonials</h2>
-        <div class="testimonials-content">
-            <div class="testimonial active">
-                <p>Mr. Haroon designed our home in Vipul Khand, Gomti Nagar, Lucknow, in a very professional manner. He effectively took in our requirements to ensure that the final design met our expectations fully.</p>
-                <h3><a href="projects.html">Mr. Jawed Usmani & Dr. Farah Usmani</a></h3>
-            </div>
-            <div class="testimonial">
-                <p>Very professional and commendable. Good team and Quality Assurance structured.</p>
-                <h3><a href="projects.html">Mr. Himanshu Singh</a></h3>
-            </div>
-            <div class="testimonial">
-                <p>Good and very nice experience.</p>
-                <h3><a href="projects.html">Mr. Aditya Mishra</a></h3>
-            </div>
-            <!-- Add more testimonials as needed -->
-        </div>
-        <div class="testimonial-navigation">
-            <span class="prev"><i class="fa fa-arrow-left"></i></span>
-            <span class="next"><i class="fa fa-arrow-right"></i></span>
-        </div>
-    </section>
-
-    <!-- Contact Us Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-buttons">
-            <!-- WhatsApp Button -->
-            <a href="https://wa.me/919161214800" target="_blank" class="contact-btn whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <!-- Phone Button -->
-            <a href="tel:+919161214800" class="contact-btn phone">
-                <i class="fas fa-phone-alt"></i> Call Us
-            </a>
-            <!-- Email Button -->
-            <a href="mailto:aiaclko1@gmail.com" class="contact-btn email">
-                <i class="fas fa-envelope"></i> Email Us
-            </a>
-        </div>
-        <!-- Google Maps Embed -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.6833433468173!2d80.944518!3d26.851492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfa2a352f5a27%3A0xf3a4f86b1c71ee12!2sJeevan%20Plaza%2C%20Vipul%20Khand%2C%20Gomti%20Nagar%2C%20Lucknow%2C%20Uttar%20Pradesh%20226110!5e0!3m2!1sen!2sin!4v1625447140192!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="footer">
-        <p>&copy; 2024 AIAC LKO - All Rights Reserved.</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/creations_4all/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61560357173133" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.youtube.com/channel/UCtAqHGQlfSmXRy2fQGeFExg" target="_blank"><i class="fab fa-youtube"></i></a>
-        </div>
-    </footer>
-
-    <!-- Add button styling -->
-    <style>
-        .contact-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            padding: 12px 20px;
-            margin: 10px 0;
-            font-size: 16px;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            width: 250px;
+        /* Top Navigation Menu */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 0;
             text-align: center;
         }
 
-        .whatsapp {
-            background-color: #25D366;
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            padding: 14px 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
         }
 
-        .whatsapp:hover {
-            background-color: #1DA955;
+        .navbar a:hover {
+            background-color: #575757;
         }
 
-        .phone {
-            background-color: #007bff;
+        /* Page Container */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .phone:hover {
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        p.description {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .apply-btn {
+            padding: 12px 25px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        .apply-btn:hover {
             background-color: #0056b3;
         }
 
-        .email {
-            background-color: #d93025;
+        .contact-info {
+            font-size: 1.1em;
+            margin-top: 25px;
+            color: #333;
         }
 
-        .email:hover {
-            background-color: #c5221f;
+        .contact-info a {
+            color: #007BFF;
+            text-decoration: none;
         }
 
-        .contact-btn i {
-            margin-right: 10px;
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        .footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
+</head>
+<body>
 
-    <!-- Load the Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-    <script>
-        function initMap() {
-            var location = { lat: 26.8537209, lng: 80.9440117 };
-            var map = new google.maps.Map(document.getElementById("map-container"), {
-                zoom: 15,
-                center: location
-            });
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-        }
-    </script>
+    <!-- Navigation Menu -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="hiring.html">We're Hiring</a>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <h1>We're Hiring! Join Our Team</h1>
+
+        <!-- Image Section -->
+        <img src="hiring.jpg" alt="We're Hiring Poster">
+
+        <!-- Description -->
+        <p class="description">Join our growing team by sending your resume today. We're looking for passionate individuals to fill the positions listed below.</p>
+
+        <!-- Apply Now Button -->
+        <a class="apply-btn" href="mailto:aiaclko@gmail.com?subject=Job%20Application&body=I%20am%20interested%20in%20applying%20for%20the%20position.">Apply Now</a>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <p>Have questions? Contact us at <a href="mailto:aiaclko@gmail.com">aiaclko@gmail.com</a> or call us at <a href="tel:+7704800140">7704800140</a>.</p>
+            <p>Office Location: Jeevan Plaza, 79-80, Vipul Khand 2, Vipul Khand 3, Vipul Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 AIAC LKO. All rights reserved. <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+
 </body>
 </html>
