@@ -935,6 +935,64 @@ ${data.message}
             }
         `;
         document.head.appendChild(style);
+
+        // Touch-friendly improvements for contact page
+        const contactCards = document.querySelectorAll('.contact-method-card');
+        contactCards.forEach(card => {
+            // Add touch feedback
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+
+            card.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+
+            // Improve touch target size
+            card.style.minHeight = '48px';
+            card.style.cursor = 'pointer';
+        });
+
+        // Enhance contact buttons for touch
+        const contactButtons = document.querySelectorAll('.contact-btn');
+        contactButtons.forEach(btn => {
+            btn.style.minHeight = '48px';
+            btn.style.minWidth = '120px';
+            btn.style.webkitTapHighlightColor = 'transparent';
+            btn.style.touchAction = 'manipulation';
+
+            btn.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+
+            btn.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Enhance form elements for touch
+        const formElements = document.querySelectorAll('input, textarea, select, .submit-btn');
+        formElements.forEach(element => {
+            element.style.minHeight = '48px';
+            element.style.webkitTapHighlightColor = 'transparent';
+            element.style.touchAction = 'manipulation';
+
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT') {
+                element.style.fontSize = '16px'; // Prevents zoom on iOS
+            }
+        });
+
+        // Enhance hours cards for touch
+        const hoursCards = document.querySelectorAll('.hours-card');
+        hoursCards.forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+
+            card.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
     </script>
 </body>
 </html>

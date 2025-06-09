@@ -1246,6 +1246,49 @@
             }
         });
 
+        // Touch-friendly improvements for projects page
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            // Add touch feedback
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+
+            card.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+
+            // Improve touch target size
+            card.style.minHeight = '48px';
+            card.style.cursor = 'pointer';
+        });
+
+        // Enhance category buttons for touch
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        categoryButtons.forEach(btn => {
+            btn.style.minHeight = '48px';
+            btn.style.minWidth = '120px';
+            btn.style.webkitTapHighlightColor = 'transparent';
+            btn.style.touchAction = 'manipulation';
+
+            btn.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+
+            btn.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Enhance lightbox controls for touch
+        const lightboxControls = document.querySelectorAll('.lightbox-nav, .lightbox-close');
+        lightboxControls.forEach(control => {
+            control.style.minWidth = '48px';
+            control.style.minHeight = '48px';
+            control.style.webkitTapHighlightColor = 'transparent';
+            control.style.touchAction = 'manipulation';
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
