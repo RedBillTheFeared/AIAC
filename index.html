@@ -116,64 +116,65 @@
         </div>
     </div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar" id="navbar">
+    <!-- Navigation Bar with Horizontal Scroll -->
+    <nav id="navbar" class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-brand">
                 <span class="brand-text">AIAC LKO</span>
-                <span class="brand-subtitle">Architecture & Design</span>
+                <span class="brand-subtitle">Architectural Innovations</span>
             </a>
-            <div class="nav-toggle" id="nav-toggle">
+            
+            <!-- Mobile Navigation Toggle -->
+            <div id="nav-toggle" class="nav-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="hiring.html" class="nav-link nav-cta">Careers</a></li>
-            </ul>
+            
+            <!-- Scrollable Navigation Wrapper -->
+            <div class="nav-menu-wrapper">
+                <ul id="nav-menu" class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="hiring.html" class="nav-link">Careers</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link nav-cta">Get Quote</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Fixed Title -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-        </div>
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
-                <h1 class="hero-title">
-                    <span class="title-line">Architectural</span>
-                    <span class="title-line">Excellence</span>
-                </h1>
-                <p class="hero-subtitle">Transforming visions into architectural masterpieces through innovative design, sustainable practices, and uncompromising quality</p>
-                <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">Discover Our Work</a>
-                    <a href="#contact" class="btn btn-secondary">Start Your Project</a>
-                </div>
+            <h1 class="hero-title">
+                <span class="title-line">Architectural</span> 
+                <span class="title-line">Excellence</span>
+            </h1>
+            <p class="hero-subtitle">Transforming visions into architectural masterpieces through innovative design and sustainable practices</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Our Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
             </div>
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
-                <div class="stat-item">
-                    <span class="stat-number" data-count="150">0</span>
-                    <span class="stat-label">Projects Completed</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="15">0</span>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="15">15+</span>
                     <span class="stat-label">Years Experience</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="98">0</span>
+                <div class="stat">
+                    <span class="stat-number" data-count="200">200+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="98">98%</span>
                     <span class="stat-label">Client Satisfaction</span>
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
         </div>
     </section>
 
@@ -527,6 +528,9 @@
                     loader.style.display = 'none';
                 }, 500);
             }, 1500);
+            
+            // Check if navigation needs scroll indicators
+            checkNavOverflow();
         });
 
         // Mobile Navigation Toggle
@@ -555,6 +559,86 @@
                 navbar.classList.remove('scrolled');
             }
         });
+        
+        // Check if navigation menu needs scroll indicators
+        function checkNavOverflow() {
+            const navWrapper = document.querySelector('.nav-menu-wrapper');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navWrapper && navMenu) {
+                if (navMenu.scrollWidth > navWrapper.clientWidth) {
+                    // Add scroll indicators if menu is wider than container
+                    addScrollIndicators(navWrapper);
+                }
+            }
+        }
+        
+        // Add scroll indicators to navigation
+        function addScrollIndicators(wrapper) {
+            // Only add if they don't already exist
+            if (!document.querySelector('.nav-scroll-indicator')) {
+                const leftIndicator = document.createElement('div');
+                leftIndicator.className = 'nav-scroll-indicator nav-scroll-left';
+                leftIndicator.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                
+                const rightIndicator = document.createElement('div');
+                rightIndicator.className = 'nav-scroll-indicator nav-scroll-right';
+                rightIndicator.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                
+                // Add indicators to DOM
+                wrapper.parentNode.insertBefore(leftIndicator, wrapper);
+                wrapper.parentNode.appendChild(rightIndicator);
+                
+                // Add event listeners
+                leftIndicator.addEventListener('click', () => {
+                    wrapper.scrollBy({ left: -100, behavior: 'smooth' });
+                });
+                
+                rightIndicator.addEventListener('click', () => {
+                    wrapper.scrollBy({ left: 100, behavior: 'smooth' });
+                });
+                
+                // Update indicator visibility on scroll
+                wrapper.addEventListener('scroll', updateScrollIndicators);
+                
+                // Initial update
+                updateScrollIndicators();
+            }
+        }
+        
+        // Update scroll indicator visibility
+        function updateScrollIndicators() {
+            const wrapper = document.querySelector('.nav-menu-wrapper');
+            const leftIndicator = document.querySelector('.nav-scroll-left');
+            const rightIndicator = document.querySelector('.nav-scroll-right');
+            
+            if (wrapper && leftIndicator && rightIndicator) {
+                // Show/hide left indicator based on scroll position
+                leftIndicator.style.opacity = wrapper.scrollLeft > 20 ? '1' : '0';
+                
+                // Show/hide right indicator based on whether there's more to scroll
+                const hasMoreToScroll = wrapper.scrollWidth > (wrapper.scrollLeft + wrapper.clientWidth + 20);
+                rightIndicator.style.opacity = hasMoreToScroll ? '1' : '0';
+            }
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            checkNavOverflow();
+        });
+        
+        // Fix for iOS Safari 100vh issue
+        function setVhVariable() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        // Set the variable initially and on resize
+        setVhVariable();
+        window.addEventListener('resize', setVhVariable);
+        
+        // Ensure proper rendering on mobile devices
+        document.addEventListener('touchstart', function() {}, {passive: true});
 
         // Animated counters
         function animateCounters() {
