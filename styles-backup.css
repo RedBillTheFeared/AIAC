@@ -1,0 +1,27 @@
+/* Backup of original styles.css */
+/* This is a backup file created during debugging */
+
+/* Test CSS to check if CSS loading works */
+body {
+    background: red !important;
+    color: white !important;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    background: blue !important;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.navbar {
+    background: green !important;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}

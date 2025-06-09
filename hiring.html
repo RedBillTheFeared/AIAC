@@ -5,175 +5,1072 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Join AIAC LKO, a leading architectural and construction firm in Lucknow. We're hiring architects, interior designers, and project managers passionate about innovative design and sustainable architecture.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>We're Hiring</title>
+    <title>Careers - AIAC LKO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" />
     <style>
-        /* Global Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            scroll-behavior: smooth; /* Enable smooth scroll */
-        }
-
-        /* Top Navigation Menu */
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: white;
-            padding: 14px 20px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar a:hover {
-            background-color: #575757;
-        }
-
-        /* Page Container */
-        .container {
-            max-width: 1100px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .container img {
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 800px;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
         }
 
-        p.description {
-            font-size: 1.2em;
-            color: #555;
-            margin-bottom: 30px;
+        .loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: #fff;
+        }
+
+        .loader-logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Page Hero Section */
+        .page-hero {
+            height: 70vh;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 90, 135, 0.8) 100%), url('hiring.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .page-hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-family: var(--font-heading);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .page-hero-content p {
+            font-size: 1.25rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Why Join Us Section */
+        .why-join-us {
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(49, 130, 206, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .benefit-card:hover::before {
+            left: 100%;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all var(--transition-medium);
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .benefit-icon i {
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Job Openings Section */
+        .job-openings {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .job-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-light);
+            transition: all var(--transition-medium);
+            position: relative;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-left-color: var(--primary-color);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .job-department {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .job-type {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .job-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-requirements {
+            margin-bottom: 2rem;
+        }
+
+        .job-requirements h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .job-requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-requirements li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .job-requirements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .job-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .job-location {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .apply-btn {
-            padding: 12px 25px;
-            background-color: #007BFF;
-            color: white;
-            border-radius: 5px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
             text-decoration: none;
-            font-size: 1.2em;
-            transition: background-color 0.3s;
+            font-weight: 500;
+            transition: all var(--transition-medium);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .apply-btn:hover {
-            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
         }
 
-        .contact-info {
-            font-size: 1.1em;
-            margin-top: 25px;
-            color: #333;
+        /* Application Process Section */
+        .application-process {
+            padding: 6rem 0;
+            background: var(--primary-color);
+            color: var(--white);
         }
 
-        .contact-info a {
-            color: #007BFF;
-            text-decoration: none;
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            padding: 0 2rem;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #333;
-            color: white;
+        .process-step {
             text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
+            position: relative;
         }
 
-        .footer a {
-            color: #007BFF;
-            text-decoration: none;
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
         }
 
-        .footer a:hover {
-            text-decoration: underline;
+        .process-step h4 {
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
         }
 
-        /* Responsive Styles */
+        .process-step p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Company Culture Section */
+        .company-culture {
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .culture-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .culture-text .section-header {
+            text-align: left;
+        }
+
+        .culture-text .section-title::after {
+            left: 0;
+            transform: none;
+        }
+
+        .culture-values {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            transition: all var(--transition-medium);
+        }
+
+        .value-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .value-icon i {
+            color: var(--white);
+            font-size: 1.25rem;
+        }
+
+        .value-text h5 {
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .value-text p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .culture-image {
+            position: relative;
+        }
+
+        .culture-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+            .jobs-grid {
+                grid-template-columns: 1fr;
             }
 
-            .apply-btn {
-                font-size: 1em;
-                padding: 10px 20px;
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
             }
 
-            p.description {
-                font-size: 1em;
+            .job-footer {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .container {
-                padding: 20px;
+            .culture-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .culture-text .section-header {
+                text-align: center;
+            }
+
+            .culture-text .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero {
+                height: 60vh;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .benefit-card,
+            .job-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navigation Menu -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="hiring.html">We're Hiring</a>
-    </div>
-
-    <!-- Main Content Section -->
-    <div class="container">
-        <h1>We're Hiring! Join Our Team</h1>
-
-        <!-- Image Section -->
-        <img src="hiring.jpg" alt="We're Hiring Poster">
-
-        <!-- Description -->
-        <p class="description">Join our growing team by sending your resume today. We're looking for passionate individuals to fill the positions listed below.</p>
-
-        <!-- Apply Now Button -->
-        <a class="apply-btn" href="mailto:aiaclko@gmail.com?subject=Job%20Application&body=I%20am%20interested%20in%20applying%20for%20the%20position.">Apply Now</a>
-
-        <!-- Contact Information -->
-        <div class="contact-info">
-            <p>Have questions? Contact us at <a href="mailto:aiaclko@gmail.com">aiaclko@gmail.com</a>.</p>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">AIAC LKO</div>
+            <div class="loading-text">Building Careers</div>
         </div>
     </div>
 
-    <!-- Footer Section -->
-    <div class="footer">
-        <p>&copy; 2024 AIAC LKO. All rights reserved. <a href="privacy.html">Privacy Policy</a></p>
-    </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-text">AIAC LKO</span>
+                <span class="brand-subtitle">Architecture & Design</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="hiring.html" class="nav-link nav-cta active">Careers</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Page Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 data-aos="fade-up">Join Our Team</h1>
+            <p data-aos="fade-up" data-aos-delay="300">Build your career with AIAC LKO and be part of creating architectural masterpieces that shape the future</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Team Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section class="why-join-us">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Why Join AIAC LKO?</h2>
+                <p class="section-subtitle">Discover the benefits of building your career with us</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Career Growth</h3>
+                    <p>Accelerate your professional development with mentorship programs, skill enhancement workshops, and clear advancement pathways.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation Focus</h3>
+                    <p>Work on cutting-edge projects using the latest design technologies and sustainable architecture practices.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaborative Culture</h3>
+                    <p>Join a diverse team of passionate professionals who value collaboration, creativity, and mutual respect.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Work-Life Balance</h3>
+                    <p>Enjoy flexible working arrangements, competitive benefits, and a supportive environment that values your well-being.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learning Opportunities</h3>
+                    <p>Access to continuous learning programs, industry conferences, and professional certification support.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="benefit-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Recognition & Rewards</h3>
+                    <p>Performance-based incentives, project bonuses, and recognition programs that celebrate your contributions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Openings Section -->
+    <section class="job-openings">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Current Openings</h2>
+                <p class="section-subtitle">Explore exciting career opportunities with our growing team</p>
+            </div>
+            <div class="jobs-grid">
+                <div class="job-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Senior Architect</h3>
+                            <div class="job-department">Design Department</div>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <p class="job-description">Lead architectural design projects from concept to completion. Work with clients to understand requirements and create innovative design solutions.</p>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Bachelor's/Master's in Architecture</li>
+                            <li>5+ years of experience in architectural design</li>
+                            <li>Proficiency in AutoCAD, Revit, SketchUp</li>
+                            <li>Strong project management skills</li>
+                            <li>Excellent communication abilities</li>
+                        </ul>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Lucknow, Uttar Pradesh</span>
+                        </div>
+                        <a href="mailto:aiaclko1@gmail.com?subject=Application for Senior Architect Position&body=Dear AIAC LKO Team,%0D%0A%0D%0AI am interested in applying for the Senior Architect position. Please find my resume attached.%0D%0A%0D%0AThank you for your consideration." class="apply-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="job-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Interior Designer</h3>
+                            <div class="job-department">Interior Design</div>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <p class="job-description">Create stunning interior spaces that blend functionality with aesthetic appeal. Collaborate with architects and clients to deliver exceptional design solutions.</p>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Degree in Interior Design or related field</li>
+                            <li>3+ years of interior design experience</li>
+                            <li>Proficiency in 3ds Max, V-Ray, Photoshop</li>
+                            <li>Strong understanding of materials and finishes</li>
+                            <li>Creative problem-solving skills</li>
+                        </ul>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Lucknow, Uttar Pradesh</span>
+                        </div>
+                        <a href="mailto:aiaclko1@gmail.com?subject=Application for Interior Designer Position&body=Dear AIAC LKO Team,%0D%0A%0D%0AI am interested in applying for the Interior Designer position. Please find my resume attached.%0D%0A%0D%0AThank you for your consideration." class="apply-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="job-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Project Manager</h3>
+                            <div class="job-department">Project Management</div>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <p class="job-description">Oversee construction projects from planning to completion. Coordinate with teams, manage timelines, and ensure quality delivery within budget.</p>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Engineering or Construction Management degree</li>
+                            <li>4+ years of project management experience</li>
+                            <li>PMP certification preferred</li>
+                            <li>Strong leadership and communication skills</li>
+                            <li>Knowledge of construction processes</li>
+                        </ul>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Lucknow, Uttar Pradesh</span>
+                        </div>
+                        <a href="mailto:aiaclko1@gmail.com?subject=Application for Project Manager Position&body=Dear AIAC LKO Team,%0D%0A%0D%0AI am interested in applying for the Project Manager position. Please find my resume attached.%0D%0A%0D%0AThank you for your consideration." class="apply-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="job-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Junior Architect</h3>
+                            <div class="job-department">Design Department</div>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <p class="job-description">Support senior architects in design development and documentation. Great opportunity for fresh graduates to start their architectural career.</p>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Bachelor's degree in Architecture</li>
+                            <li>0-2 years of experience</li>
+                            <li>Basic knowledge of AutoCAD, Revit</li>
+                            <li>Eagerness to learn and grow</li>
+                            <li>Strong design fundamentals</li>
+                        </ul>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Lucknow, Uttar Pradesh</span>
+                        </div>
+                        <a href="mailto:aiaclko1@gmail.com?subject=Application for Junior Architect Position&body=Dear AIAC LKO Team,%0D%0A%0D%0AI am interested in applying for the Junior Architect position. Please find my resume attached.%0D%0A%0D%0AThank you for your consideration." class="apply-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process Section -->
+    <section class="application-process">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title" style="color: var(--white);">Application Process</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Simple steps to join our team</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h4>Submit Application</h4>
+                    <p>Send your resume and portfolio to our email. Include a cover letter explaining your interest in the position.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h4>Initial Review</h4>
+                    <p>Our HR team will review your application and contact you within 3-5 business days if you meet our requirements.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h4>Interview Process</h4>
+                    <p>Participate in technical and cultural fit interviews with our team leaders and department heads.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <h4>Welcome Aboard</h4>
+                    <p>Complete onboarding, meet your team, and start your exciting journey with AIAC LKO.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Culture Section -->
+    <section class="company-culture">
+        <div class="culture-content">
+            <div class="culture-text" data-aos="fade-right">
+                <div class="section-header">
+                    <h2 class="section-title">Our Culture</h2>
+                    <p class="section-subtitle">Values that drive our success</p>
+                </div>
+                <div class="culture-values">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="value-text">
+                            <h5>Collaboration</h5>
+                            <p>We believe in the power of teamwork and open communication</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="value-text">
+                            <h5>Excellence</h5>
+                            <p>We strive for the highest quality in everything we do</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="value-text">
+                            <h5>Sustainability</h5>
+                            <p>We're committed to environmentally responsible design practices</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="value-text">
+                            <h5>Innovation</h5>
+                            <p>We embrace new technologies and creative solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="culture-image" data-aos="fade-left">
+                <img src="2.png" alt="AIAC LKO Team Culture" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-brand">
+                        <h3>AIAC LKO</h3>
+                        <p>Transforming visions into architectural masterpieces through innovative design and sustainable practices.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/creations_4all/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61560357173133" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCtAqHGQlfSmXRy2fQGeFExg" target="_blank" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="hiring.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Career Opportunities</h4>
+                    <ul class="footer-links">
+                        <li><a href="#job-openings">Senior Architect</a></li>
+                        <li><a href="#job-openings">Interior Designer</a></li>
+                        <li><a href="#job-openings">Project Manager</a></li>
+                        <li><a href="#job-openings">Junior Architect</a></li>
+                        <li><a href="mailto:aiaclko1@gmail.com">Submit Resume</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Jeevan Plaza, Lucknow, UP 226010</p>
+                        <p><i class="fas fa-phone"></i> +91 916 121 4800</p>
+                        <p><i class="fas fa-envelope"></i> aiaclko1@gmail.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 10:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AIAC LKO - All Rights Reserved. | Building careers, creating futures</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu) {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Animated counters for hero stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+
+            counters.forEach(counter => {
+                const text = counter.textContent;
+                const target = parseInt(text.replace(/\D/g, ''));
+                const suffix = text.replace(/\d/g, '');
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current) + suffix;
+                }, 16);
+            });
+        }
+
+        // Trigger counter animation when hero section is visible
+        const heroSection = document.querySelector('.page-hero');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        observer.observe(heroSection);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add floating animation to benefit cards
+        const benefitCards = document.querySelectorAll('.benefit-card');
+        benefitCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+            card.classList.add('floating');
+        });
+
+        // Add floating animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            .floating {
+                animation: floating 4s ease-in-out infinite;
+            }
+
+            @keyframes floating {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Job card hover effects
+        const jobCards = document.querySelectorAll('.job-card');
+        jobCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add scroll-triggered animations for process steps
+        const processSteps = document.querySelectorAll('.process-step');
+        const processObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.opacity = '1';
+                    }, index * 200);
+                }
+            });
+        });
+
+        processSteps.forEach(step => {
+            step.style.transform = 'translateY(30px)';
+            step.style.opacity = '0';
+            step.style.transition = 'all 0.6s ease';
+            processObserver.observe(step);
+        });
+    </script>
 </body>
 </html>

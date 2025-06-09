@@ -11,19 +11,66 @@
     <meta name="description" content="AIAC LKO is a leading architecture and construction firm based in Lucknow, offering architectural design, interior design, landscaping, and project management services. Trusted by clients across Uttar Pradesh.">
     <title>AIAC LKO - Architectural Showcase</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" />
     <style>
-        /* Ensure the map container has a set height */
-        #map-container {
-            height: 400px;
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            border: 1px solid #ddd;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: #fff;
+        }
+
+        .loader-logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Fallback styles in case CSS doesn't load */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7fafc;
         }
     </style>
 
@@ -61,148 +108,548 @@
 
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">AIAC LKO</div>
+            <div class="loading-text">Crafting Architectural Excellence</div>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="brand">AIAC LKO</a>
-            <ul class="nav-links">
-                <li><a href="#about">About Us</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="hiring.html">Hiring</a></li>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <span class="brand-text">AIAC LKO</span>
+                <span class="brand-subtitle">Architecture & Design</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="hiring.html" class="nav-link nav-cta">Careers</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
-        <div class="overlay"></div> <!-- Dark overlay for better readability -->
-        <div class="hero-content">
-            <h1>Architectural Excellence</h1>
-            <p>Transforming Visions into Architectural Masterpieces – Experience Design Excellence with AIAC LKO</p>
-            <a href="#about" class="learn-more">Learn More</a>
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
         </div>
-    </header>
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="hero-title">
+                    <span class="title-line">Architectural</span>
+                    <span class="title-line">Excellence</span>
+                </h1>
+                <p class="hero-subtitle">Transforming visions into architectural masterpieces through innovative design, sustainable practices, and uncompromising quality</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">Discover Our Work</a>
+                    <a href="#contact" class="btn btn-secondary">Start Your Project</a>
+                </div>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="150">0</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="98">0</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive architectural solutions tailored to your vision</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Architectural Design</h3>
+                    <p>Innovative and sustainable architectural solutions that blend functionality with aesthetic excellence.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Interior Design</h3>
+                    <p>Creating beautiful, functional interior spaces that reflect your personality and lifestyle.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Landscape Design</h3>
+                    <p>Harmonious outdoor spaces that complement your architecture and enhance your environment.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Construction Management</h3>
+                    <p>End-to-end project management ensuring quality, timeline, and budget adherence.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainable Design</h3>
+                    <p>Eco-friendly solutions that minimize environmental impact while maximizing efficiency.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Project Consultation</h3>
+                    <p>Expert guidance and consultation for all phases of your architectural project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Us Section -->
     <section id="about" class="about">
-        <h2>About Us</h2>
-        <div class="about-content">
-            <p>An Architect, Interior Designer, Landscape Designer, Project Management & Construction Management Consultant, and the fastest growing Construction Contractor in Lucknow, Architectural Innovations & Construction is a proprietary firm based in the capital city of the state Uttar Pradesh in India.</p>
-            <p>It was established by its Chief Architect Ahmed Haroon who is involved in planning and designing of various Government and Private Projects since the beginning. He has an excellent oversight of his clients' requirements and owns the ability to translate his clients' imaginative dreams into physical, earthly built form.</p>
-            <p>Apart from being an International Associate of American Institute of Architects, he is a qualified Indian Green Building Council Accredited Professional (IGBC AP).</p>
-            <p>The Firm specializes in Sustainable Designs and Architecture. Sustainable or Green Architecture is a term, which not only describes a technologically and materially durable building design, but also an ecologically and environmentally stable one. The firm is always committed to the green architecture with environmentally conscious designs.</p>
-            <p>Besides architects, the firm also includes interior designers & decorators, industrial building planners, landscape architects, and other professionals. Collectively they develop technically sound Master of the Art structures as per the requirement of its clients.</p>
-            <p>Apart from being an architectural firm, AIAC Lucknow is a professional team of builders also. Whether it is a Residential building or a Commercial one, they are here to assist you in all aspects of its construction. Capturing your vision, they create a construction plan that reflects your uniqueness and perception.</p>
-            <p>While the firm is based in Lucknow, it has a vast experience of doing work in various parts of Uttar Pradesh and adjoining states of India.</p>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <div class="section-header">
+                        <h2 class="section-title">About AIAC LKO</h2>
+                        <p class="section-subtitle">Crafting architectural excellence since 2009</p>
+                    </div>
+                    <div class="about-description">
+                        <p>Architectural Innovations & Construction (AIAC LKO) is a leading architecture and construction firm based in Lucknow, specializing in sustainable and innovative design solutions. Founded by Chief Architect Ahmed Haroon, we have been transforming visions into architectural masterpieces for over a decade.</p>
+
+                        <p>Our expertise spans across architectural design, interior design, landscape architecture, and comprehensive project management. As an International Associate of the American Institute of Architects and IGBC Accredited Professional, we bring global standards to local projects.</p>
+
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-award"></i>
+                                <span>IGBC Accredited Professional</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-globe"></i>
+                                <span>International Associate AIA</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Sustainable Design Specialist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <div class="image-container">
+                        <img src="2.png" alt="AIAC LKO Architecture" />
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3>Excellence in Every Detail</h3>
+                                <p>From concept to completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="featured-projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcasing our finest architectural achievements</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="aiaclko-himanshu-sir-residence-1.png" alt="Himanshu Residence" />
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Himanshu Residence</h3>
+                                <p>Modern Residential Design</p>
+                                <a href="projects.html" class="project-link">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="aiaclko-pvt-Diamond-Palace-1.jpg" alt="Diamond Palace" />
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Diamond Palace</h3>
+                                <p>Luxury Commercial Complex</p>
+                                <a href="projects.html" class="project-link">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <img src="aiaclko-pvt-JSV-Hyundai-1.jpg" alt="JSV Hyundai Showroom" />
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>JSV Hyundai Showroom</h3>
+                                <p>Contemporary Commercial Space</p>
+                                <a href="projects.html" class="project-link">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-cta" data-aos="fade-up" data-aos-delay="400">
+                <a href="projects.html" class="btn btn-outline">View All Projects</a>
+            </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
-        <h2>Testimonials</h2>
-        <div class="testimonials-content">
-            <div class="testimonial active">
-                <p>Mr. Haroon designed our home in Vipul Khand, Gomti Nagar, Lucknow, in a very professional manner. He effectively took in our requirements to ensure that the final design met our expectations fully.</p>
-                <h3><a href="projects.html">Mr. Jawed Usmani & Dr. Farah Usmani</a></h3>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Client Testimonials</h2>
+                <p class="section-subtitle">What our clients say about our work</p>
             </div>
-            <div class="testimonial">
-                <p>Very professional and commendable. Good team and Quality Assurance structured.</p>
-                <h3><a href="projects.html">Mr. Himanshu Singh</a></h3>
+            <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"Mr. Haroon designed our home in Vipul Khand, Gomti Nagar, Lucknow, in a very professional manner. He effectively took in our requirements to ensure that the final design met our expectations fully."</p>
+                            <div class="testimonial-author">
+                                <h4>Mr. Jawed Usmani & Dr. Farah Usmani</h4>
+                                <span>Residential Client</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"Very professional and commendable. Good team and Quality Assurance structured. The attention to detail and commitment to excellence is remarkable."</p>
+                            <div class="testimonial-author">
+                                <h4>Mr. Himanshu Singh</h4>
+                                <span>Commercial Client</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"Good and very nice experience. The team delivered beyond our expectations with innovative design solutions and timely completion."</p>
+                            <div class="testimonial-author">
+                                <h4>Mr. Aditya Mishra</h4>
+                                <span>Residential Client</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn prev-btn" id="prev-testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonial-dots" id="testimonial-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                    <button class="testimonial-btn next-btn" id="next-testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
-            <div class="testimonial">
-                <p>Good and very nice experience.</p>
-                <h3><a href="projects.html">Mr. Aditya Mishra</a></h3>
-            </div>
-            <!-- Add more testimonials as needed -->
-        </div>
-        <div class="testimonial-navigation">
-            <span class="prev"><i class="fa fa-arrow-left"></i></span>
-            <span class="next"><i class="fa fa-arrow-right"></i></span>
         </div>
     </section>
 
     <!-- Contact Us Section -->
     <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-buttons">
-            <!-- WhatsApp Button -->
-            <a href="https://wa.me/919161214800" target="_blank" class="contact-btn whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <!-- Phone Button -->
-            <a href="tel:+919161214800" class="contact-btn phone">
-                <i class="fas fa-phone-alt"></i> Call Us
-            </a>
-            <!-- Email Button -->
-            <a href="mailto:aiaclko1@gmail.com" class="contact-btn email">
-                <i class="fas fa-envelope"></i> Email Us
-            </a>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to start your architectural journey? Let's discuss your vision</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Visit Our Office</h3>
+                            <p>Jeevan Plaza, Lucknow<br>Uttar Pradesh 226010, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p>+91 916 121 4800</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>aiaclko1@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/919161214800" target="_blank" class="contact-btn whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="tel:+919161214800" class="contact-btn phone">
+                            <i class="fas fa-phone-alt"></i> Call Now
+                        </a>
+                        <a href="mailto:aiaclko1@gmail.com" class="contact-btn email">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-map" data-aos="fade-left">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.8150867192076!2d80.98253849999999!3d26.845833100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfdf9dad0703b%3A0xce4a38b8f66a9cfb!2sArchitectural%20Innovations%20and%20Construction!5e0!3m2!1sen!2sin!4v1749445520130!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Google Maps Embed -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.814489230222!2d80.9825512!3d26.8458521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd2c3d6a2113%3A0x8a917f499a91c889!2sJeevan%20Plaza!5e0!3m2!1sen!2sin!4v1730029719008!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <!-- Footer Section -->
     <footer class="footer">
-        <p>&copy; 2024 AIAC LKO - All Rights Reserved.</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/creations_4all/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61560357173133" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.youtube.com/channel/UCtAqHGQlfSmXRy2fQGeFExg" target="_blank"><i class="fab fa-youtube"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-brand">
+                        <h3>AIAC LKO</h3>
+                        <p>Transforming visions into architectural masterpieces through innovative design and sustainable practices.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/creations_4all/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61560357173133" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCtAqHGQlfSmXRy2fQGeFExg" target="_blank" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="hiring.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Architectural Design</a></li>
+                        <li><a href="#services">Interior Design</a></li>
+                        <li><a href="#services">Landscape Design</a></li>
+                        <li><a href="#services">Construction Management</a></li>
+                        <li><a href="#services">Sustainable Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Jeevan Plaza, Lucknow, UP 226010</p>
+                        <p><i class="fas fa-phone"></i> +91 916 121 4800</p>
+                        <p><i class="fas fa-envelope"></i> aiaclko1@gmail.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 10:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AIAC LKO - All Rights Reserved. | Designed with excellence</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Add button styling -->
-    <style>
-        .contact-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animated counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current) + (target === 98 ? '%' : '+');
+                }, 16);
+            });
         }
 
-        .contact-btn {
-            display: inline-block;
-            padding: 12px 20px;
-            margin: 10px 0;
-            font-size: 16px;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            width: 250px;
-            text-align: center;
+        // Trigger counter animation when hero section is visible
+        const heroSection = document.querySelector('.hero');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        observer.observe(heroSection);
+
+        // Testimonials Slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prev-testimonial');
+        const nextBtn = document.getElementById('next-testimonial');
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
         }
 
-        .whatsapp {
-            background-color: #25D366;
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
         }
 
-        .whatsapp:hover {
-            background-color: #1DA955;
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentTestimonial);
         }
 
-        .phone {
-            background-color: #007bff;
-        }
+        nextBtn.addEventListener('click', nextTestimonial);
+        prevBtn.addEventListener('click', prevTestimonial);
 
-        .phone:hover {
-            background-color: #0056b3;
-        }
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                showTestimonial(currentTestimonial);
+            });
+        });
 
-        .email {
-            background-color: #d93025;
-        }
+        // Auto-play testimonials
+        setInterval(nextTestimonial, 5000);
 
-        .email:hover {
-            background-color: #c5221f;
-        }
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-        .contact-btn i {
-            margin-right: 10px;
-        }
-    </style>
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-background');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+    </script>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

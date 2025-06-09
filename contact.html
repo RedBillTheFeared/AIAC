@@ -6,219 +6,793 @@
     <meta name="description" content="Need an architect in Lucknow? Contact AIAC LKO today for expert design and construction services. Visit, call, or message us.">
     <title>Contact Us - AIAC LKO</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('2.png'); /* Same background as main site */
-            background-size: cover;
-            background-attachment: fixed;
-            color: #333;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-        }
-
-        .container {
-            width: 100%; /* Use full width */
-            max-width: 1200px; /* Set a maximum width for large screens */
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .header {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .nav a:hover {
-            color: #FFD700; /* Gold color on hover */
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-
-        .contact-info a {
-            text-decoration: none;
-            color: #fff;
-            padding: 15px 25px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            margin: 10px;
-            font-size: 1.2em;
-            transition: background 0.3s ease;
-            width: 220px;
-            justify-content: center;
-        }
-
-        .contact-info a i {
-            margin-right: 10px;
-            font-size: 1.5em;
-        }
-
-        .whatsapp {
-            background-color: #25D366;
-        }
-
-        .whatsapp:hover {
-            background-color: #1da955;
-        }
-
-        .email {
-            background-color: #D14836;
-        }
-
-        .email:hover {
-            background-color: #b5382d;
-        }
-
-        .call {
-            background-color: #007BFF;
-        }
-
-        .call:hover {
-            background-color: #005bb5;
-        }
-
-        .map {
-            margin: 20px auto;
-            border: 2px solid #212120;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 100%; /* Full width to fit the screen */
-            max-width: 1000px; /* Set a max-width for larger screens */
-        }
-
-        .map iframe {
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 450px;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: #fff;
+        }
+
+        .loader-logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Page Hero Section */
+        .page-hero {
+            height: 60vh;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 90, 135, 0.8) 100%), url('2.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .page-hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-family: var(--font-heading);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .page-hero-content p {
+            font-size: 1.25rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact Methods Section */
+        .contact-methods {
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .contact-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-method-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-method-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(49, 130, 206, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .contact-method-card:hover::before {
+            left: 100%;
+        }
+
+        .contact-method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all var(--transition-medium);
+        }
+
+        .contact-method-card:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-icon i {
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .contact-icon.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #1DA955 100%);
+        }
+
+        .contact-icon.email {
+            background: linear-gradient(135deg, #d93025 0%, #c5221f 100%);
+        }
+
+        .contact-icon.phone {
+            background: var(--gradient-accent);
+        }
+
+        .contact-icon.location {
+            background: var(--gradient-primary);
+        }
+
+        .contact-method-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+        }
+
+        .contact-method-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all var(--transition-medium);
+            font-weight: 500;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-btn.whatsapp {
+            background: #25D366;
+        }
+
+        .contact-btn.whatsapp:hover {
+            background: #1DA955;
+        }
+
+        .contact-btn.email {
+            background: #d93025;
+        }
+
+        .contact-btn.email:hover {
+            background: #c5221f;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-form {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all var(--transition-medium);
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 6rem 0;
+            background: var(--primary-color);
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .map-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            height: 500px;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
             border: none;
         }
 
-        .footer {
+        /* Office Hours Section */
+        .office-hours {
+            padding: 4rem 0;
+            background: var(--light-gray);
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-            border-radius: 10px;
-            margin-top: 20px;
         }
 
-        .footer p {
-            font-size: 1.2em;
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            padding: 0 2rem;
+        }
+
+        .hours-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            transition: all var(--transition-medium);
+        }
+
+        .hours-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .hours-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+        }
+
+        .hours-card p {
+            color: var(--text-light);
+            margin: 0;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                width: 95%; /* Use 95% for small screens to avoid any overflow */
+            .contact-methods-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
-            .header h1 {
-                font-size: 1.8em;
+
+            .form-row {
+                grid-template-columns: 1fr;
             }
-            .nav a {
-                font-size: 1em;
+
+            .contact-form {
+                padding: 2rem 1.5rem;
             }
-            .contact-info a {
-                width: 180px;
-                font-size: 1em;
-                padding: 10px;
+
+            .map-wrapper {
+                height: 350px;
             }
-            .map iframe {
-                height: 300px;
+
+            .hours-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.5em;
+            .page-hero {
+                height: 50vh;
             }
-            .nav {
-                flex-direction: column;
-                align-items: center;
+
+            .contact-method-card {
+                padding: 2rem 1.5rem;
             }
-            .nav a {
-                font-size: 0.9em;
-                padding: 8px;
+
+            .contact-form {
+                padding: 1.5rem;
             }
-            .contact-info a {
-                width: 160px;
-                font-size: 0.9em;
-                padding: 8px;
-            }
-            .map iframe {
-                height: 250px;
+
+            .map-wrapper {
+                height: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Contact Us</h1>
-        <div class="nav">
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="hiring.html">We are hiring</a>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">AIAC LKO</div>
+            <div class="loading-text">Connecting With You</div>
         </div>
-    </div>
-    <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.814489230222!2d80.9825512!3d26.8458521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd2c3d6a2113%3A0x8a917f499a91c889!2sJeevan%20Plaza!5e0!3m2!1sen!2sin!4v1730029719008!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div class="container">
-        <div class="contact-info">
-            <a class="whatsapp" href="https://wa.me/919161214800" target="_blank">
-                <i class="fa fa-whatsapp"></i> WhatsApp Us
-            </a>
-            <a class="email" href="mailto:aiaclko@gmail.com">
-                <i class="fa fa-envelope"></i> Email Us
-            </a>
-            <a class="call" href="tel:+919161214800">
-                <i class="fa fa-phone"></i> Call Us
-            </a>
-        </div>
-    </div>
-    <div class="footer">
-        <p>&copy; 2024 AIAC LKO - All Rights Reserved.</p>
     </div>
 
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH/2BR2mcS8Rjt2Tj4mXo2jIjj3tPtLCi2O1whpSHM+dbDgKz8k8QpQEC2GR1jcWIMXzV0JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-text">AIAC LKO</span>
+                <span class="brand-subtitle">Architecture & Design</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li class="nav-item"><a href="hiring.html" class="nav-link nav-cta">Careers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 data-aos="fade-up">Get In Touch</h1>
+            <p data-aos="fade-up" data-aos-delay="300">Ready to start your architectural journey? Let's discuss your vision and bring your dreams to life</p>
+        </div>
+    </section>
+
+    <!-- Contact Methods Section -->
+    <section class="contact-methods">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Contact Methods</h2>
+                <p class="section-subtitle">Choose your preferred way to reach us</p>
+            </div>
+            <div class="contact-methods-grid">
+                <div class="contact-method-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Get instant responses to your queries. Chat with our team for quick assistance and project discussions.</p>
+                    <a href="https://wa.me/919161214800" target="_blank" class="contact-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chat Now
+                    </a>
+                </div>
+
+                <div class="contact-method-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-icon phone">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone Call</h3>
+                    <p>Speak directly with our architects. Schedule a consultation or discuss your project requirements over the phone.</p>
+                    <a href="tel:+919161214800" class="contact-btn">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+
+                <div class="contact-method-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-icon email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>Send us detailed project requirements, documents, or any questions. We'll respond within 24 hours.</p>
+                    <a href="mailto:aiaclko1@gmail.com" class="contact-btn email">
+                        <i class="fas fa-envelope"></i> Send Email
+                    </a>
+                </div>
+
+                <div class="contact-method-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="contact-icon location">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Our Office</h3>
+                    <p>Meet our team in person at our Lucknow office. Schedule an appointment for detailed project discussions.</p>
+                    <a href="#map" class="contact-btn">
+                        <i class="fas fa-map-marker-alt"></i> Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="contact-form-container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Send Us a Message</h2>
+                <p class="section-subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
+            </div>
+            <form class="contact-form" data-aos="fade-up" data-aos-delay="200">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="projectType">Project Type</label>
+                    <select id="projectType" name="projectType">
+                        <option value="">Select Project Type</option>
+                        <option value="residential">Residential Design</option>
+                        <option value="commercial">Commercial Design</option>
+                        <option value="interior">Interior Design</option>
+                        <option value="landscape">Landscape Design</option>
+                        <option value="renovation">Renovation</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Estimated Budget</label>
+                    <select id="budget" name="budget">
+                        <option value="">Select Budget Range</option>
+                        <option value="under-5">Under ₹5 Lakhs</option>
+                        <option value="5-10">₹5 - 10 Lakhs</option>
+                        <option value="10-25">₹10 - 25 Lakhs</option>
+                        <option value="25-50">₹25 - 50 Lakhs</option>
+                        <option value="50-100">₹50 Lakhs - 1 Crore</option>
+                        <option value="above-100">Above ₹1 Crore</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details *</label>
+                    <textarea id="message" name="message" placeholder="Please describe your project requirements, timeline, location, and any specific needs..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="map-section">
+        <div class="map-container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title" style="color: var(--white);">Find Our Office</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Located in the heart of Lucknow for easy accessibility</p>
+            </div>
+            <div class="map-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.814489230222!2d80.9825512!3d26.8458521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd2c3d6a2113%3A0x8a917f499a91c889!2sJeevan%20Plaza!5e0!3m2!1sen!2sin!4v1730029719008!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Hours Section -->
+    <section class="office-hours">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Office Hours</h2>
+                <p class="section-subtitle">We're here to help you during these hours</p>
+            </div>
+            <div class="hours-grid">
+                <div class="hours-card" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Monday - Friday</h4>
+                    <p>10:00 AM - 6:00 PM</p>
+                </div>
+                <div class="hours-card" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Saturday</h4>
+                    <p>10:00 AM - 4:00 PM</p>
+                </div>
+                <div class="hours-card" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Sunday</h4>
+                    <p>Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-brand">
+                        <h3>AIAC LKO</h3>
+                        <p>Transforming visions into architectural masterpieces through innovative design and sustainable practices.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/creations_4all/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61560357173133" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCtAqHGQlfSmXRy2fQGeFExg" target="_blank" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="hiring.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">Architectural Design</a></li>
+                        <li><a href="index.html#services">Interior Design</a></li>
+                        <li><a href="index.html#services">Landscape Design</a></li>
+                        <li><a href="index.html#services">Construction Management</a></li>
+                        <li><a href="index.html#services">Sustainable Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="400">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Jeevan Plaza, Lucknow, UP 226010</p>
+                        <p><i class="fas fa-phone"></i> +91 916 121 4800</p>
+                        <p><i class="fas fa-envelope"></i> aiaclko1@gmail.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 10:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AIAC LKO - All Rights Reserved. | Designed with excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu) {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Simple validation
+            if (!data.firstName || !data.lastName || !data.email || !data.message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Create email body
+            const emailBody = `
+Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+Phone: ${data.phone || 'Not provided'}
+Project Type: ${data.projectType || 'Not specified'}
+Budget: ${data.budget || 'Not specified'}
+
+Message:
+${data.message}
+            `.trim();
+
+            // Create mailto link
+            const mailtoLink = `mailto:aiaclko1@gmail.com?subject=New Contact Form Submission&body=${encodeURIComponent(emailBody)}`;
+
+            // Open email client
+            window.location.href = mailtoLink;
+
+            // Show success message
+            alert('Thank you for your message! Your email client will open to send the message.');
+
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add floating animation to contact method cards
+        const cards = document.querySelectorAll('.contact-method-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+            card.classList.add('floating');
+        });
+
+        // Add floating animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            .floating {
+                animation: floating 3s ease-in-out infinite;
+            }
+
+            @keyframes floating {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
