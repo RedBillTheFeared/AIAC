@@ -9,8 +9,160 @@
     body {
       font-family: 'Inter', sans-serif;
       background: #f9fafb;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Navigation Styles */
+    .navbar {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      padding: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      height: 80px;
+    }
+    
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    
+    .logo-subtitle {
+      color: #bdc3c7;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #3498db;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #3498db;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .get-quote-btn {
+      background: #3498db;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid #3498db;
+    }
+    
+    .get-quote-btn:hover {
+      background: transparent;
+      color: #3498db;
+      transform: translateY(-2px);
+    }
+    
+    /* Mobile Menu Styles */
+    .mobile-menu-btn {
+      display: none;
+      color: white;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #2c3e50;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .mobile-menu.active {
+      display: flex;
+    }
+    
+    .mobile-nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 15px 0;
+      border-bottom: 1px solid #34495e;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      color: #3498db;
+    }
+    
+    .mobile-nav-link:last-child {
+      border-bottom: none;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .navbar {
+        position: relative;
+      }
+    }
+    
+    /* Main content padding to account for fixed navbar */
+    .main-content {
       padding: 40px 20px;
     }
+    
     .package-header {
       background-color: #2c3e50;
     }
@@ -98,19 +250,58 @@
     overflow: hidden;
     max-width: 320px;
     margin: 0 auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* added transition */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Hover effect */
     .card:hover {
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
     }
-
   </style>
 </head>
 <body>
-  <main class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo Section -->
+      <div class="logo-section">
+        <div class="logo">AIAC LKO</div>
+        <div class="logo-subtitle">ARCHITECTURAL INNOVATIONS</div>
+      </div>
+      
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#" class="nav-link">About</a></li>
+        <li><a href="#" class="nav-link">Services</a></li>
+        <li><a href="#" class="nav-link">Projects</a></li>
+        <li><a href="#" class="nav-link">Testimonials</a></li>
+        <li><a href="#" class="nav-link">Contact</a></li>
+        <li><a href="#" class="nav-link">Careers</a></li>
+        <li><a href="#" class="get-quote-btn">Get Quote</a></li>
+      </ul>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        ☰
+      </button>
+      
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#" class="mobile-nav-link">Home</a>
+        <a href="#" class="mobile-nav-link">About</a>
+        <a href="#" class="mobile-nav-link">Services</a>
+        <a href="#" class="mobile-nav-link">Projects</a>
+        <a href="#" class="mobile-nav-link">Testimonials</a>
+        <a href="#" class="mobile-nav-link">Contact</a>
+        <a href="#" class="mobile-nav-link">Careers</a>
+        <a href="#" class="get-quote-btn" style="margin-top: 20px; text-align: center; display: inline-block;">Get Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
     <!-- Card Template Start -->
     <section class="card" aria-label="Basic Package Pricing Card">
       <header class="package-header p-6 rounded-t-lg text-center">
@@ -219,6 +410,12 @@
   </template>
 
   <script>
+    // Mobile menu toggle function
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+
     // Helper function to create an accordion item
     function AccordionItem({title}) {
       const template = document.getElementById('accordion-template');
@@ -228,8 +425,6 @@
       const titleSpan = node.querySelector('.title');
       titleSpan.textContent = title;
 
-      // Add example explanatory text for illustration
-      // In real use, this could load actual data per section
       const exampleDetails = {
         "Design": "Conceptual architecture, floor plans, 3D models, and interior layouts.",
         "Project Management": "Scheduling, budgeting, coordinating contractors and suppliers.",
@@ -281,4 +476,3 @@
   </script>
 </body>
 </html>
-
